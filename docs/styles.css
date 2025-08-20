@@ -23,20 +23,52 @@ a:hover {
 .badge-custom {
     margin: 2px;
     font-size: 0.9rem;
+    transition: transform 0.2s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    transition: 0.3s;
+.badge-custom:hover {
+    transform: scale(1.1);
 }
 
 .repo-card {
-    background: #1b1d2a;
+    background: linear-gradient(145deg, #1b1d2a, #262836);
+    border-radius: 15px;
     border: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.repo-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+.repo-card .card-body {
+    text-align: center;
+}
+
+.repo-card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.repo-card p {
+    font-size: 0.95rem;
+    color: #d1d1d1;
+}
+
+.repo-card .badge {
+    margin: 2px;
+    font-size: 0.85rem;
+}
+
+.animate__animated {
+    --animate-duration: 0.8s;
 }
 
 .repo-card a {
     color: #f0f0f0;
+    transition: color 0.2s;
 }
 
 .repo-card a:hover {
