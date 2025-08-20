@@ -118,22 +118,22 @@
             .then(repos => {
                 repos
                     .filter(repo => !repo.private) // solo repos públicos
-                    .forEach(repo => {
+                    .forEach((repo, index) => {
                         const col = document.createElement('div');
                         col.className = 'col-md-4 mb-4';
                         col.innerHTML = `
-            <div class="card repo-card p-4 animate__animated animate__fadeInUp">
-              <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-folder-fill me-2 text-white"></i>
-                  <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                </h5>
-                <p class="card-text">${repo.description || 'No description available.'}</p>
-                <div class="mt-3">
-                  <span class="badge bg-secondary">${repo.language || 'N/A'}</span>
-                  <span class="badge bg-warning text-dark"><i class="bi bi-star-fill"></i> ${repo.stargazers_count}</span>
-                </div>
-              </div>
-            </div>`;
+                        <div class="card repo-card p-4 animate-pop" style="animation-delay: ${index * 0.1}s">
+                          <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-folder-fill me-2 text-white"></i>
+                              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                            </h5>
+                            <p class="card-text">${repo.description || 'No description available.'}</p>
+                            <div class="mt-3">
+                              <span class="badge bg-secondary">${repo.language || 'N/A'}</span>
+                              <span class="badge bg-warning text-dark"><i class="bi bi-star-fill"></i> ${repo.stargazers_count}</span>
+                            </div>
+                          </div>
+                        </div>`;
                         container.appendChild(col);
                     });
             })
