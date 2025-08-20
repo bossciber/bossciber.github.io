@@ -27,7 +27,7 @@ a:hover {
 }
 
 .badge-custom:hover {
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(-5deg);
 }
 
 .repo-card {
@@ -39,8 +39,8 @@ a:hover {
 }
 
 .repo-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(1.05) rotate(-1deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .repo-card .card-body {
@@ -62,10 +62,6 @@ a:hover {
     font-size: 0.85rem;
 }
 
-.animate__animated {
-    --animate-duration: 0.8s;
-}
-
 .repo-card a {
     color: #f0f0f0;
     transition: color 0.2s;
@@ -75,23 +71,27 @@ a:hover {
     color: #0d6efd;
 }
 
-/* Animación tipo badge adaptada para las cards de repositorios */
-@keyframes popIn {
+/* Animación pop + float + bounce para repositorios al entrar en pantalla */
+@keyframes popScroll {
     0% {
-        transform: scale(0.8);
+        transform: translateY(40px) scale(0.8) rotate(-2deg);
         opacity: 0;
     }
 
-    60% {
-        transform: scale(1.05);
+    50% {
+        transform: translateY(-10px) scale(1.05) rotate(2deg);
         opacity: 1;
     }
 
+    80% {
+        transform: translateY(5px) scale(1) rotate(-1deg);
+    }
+
     100% {
-        transform: scale(1);
+        transform: translateY(0) scale(1) rotate(0);
     }
 }
 
-.repo-card.animate-pop {
-    animation: popIn 0.8s ease forwards;
+.repo-card.animate-pop-scroll {
+    animation: popScroll 0.8s ease forwards;
 }
